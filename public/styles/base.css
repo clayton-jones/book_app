@@ -1,10 +1,16 @@
-
 body {
   width: 480px;
   margin: auto;
   border: #E7ECEF solid 1px;
   background-color: #13293D;
   color: #E7ECEF;
+}
+
+header {
+  background-color: #001D4A;
+  color: #E7ECEF;
+  height: 50px;
+  text-align: center;
 }
 
 @media (min-width: 760px) {

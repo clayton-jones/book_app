@@ -1,9 +1,16 @@
+#title {
+    background-color: #56638A;
+    color: #E7ECEF;
+    height: 45px;
+    text-align: center;
+}
+
 form > input, fieldset {
     width: 85%;
     height: 45px;
     margin: 13px auto;
-    
   }
+  
   form > input {
     background-color: #E7ECEF;
   }
