@@ -43,13 +43,13 @@ Actual time needed to complete: 15 mins
 
 Number and name of feature: Feature 4
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 30 mins
 
-Start time: _____
+Start time: 7:00pm
 
-Finish time: _____
+Finish time: 7:17pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 17 mins
 
 Number and name of feature: Feature 5
 

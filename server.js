@@ -40,12 +40,15 @@ function createSearch (req, res) {
 
   superagent.get(url)
     .then(results => {
-      // console.log(results.body.items[0]);
       const bookArr = results.body.items.map(book => {
         // console.log('book.imageLinks.thumbnail:', book);
         return new Book(book);
       });
       res.render('pages/searches/show.ejs', {books: bookArr});
+    })
+    .catch((err) => {
+      //res.render('pages/error.ejs', {error: err});
+      errorHandler(err, req, res);
     });
 }
 
@@ -60,6 +63,12 @@ function Book (data) {
   this.author = data.volumeInfo.authors;
   // this.thumbnail = data.volumeInfo.imageLinks.smallThumbnail || 'thumbnail not available';
 }
+
+function errorHandler(err, req, res) {
+  res.status(500).render('pages/error.ejs', {error: err});
+}
+
+
 
 app.listen(PORT, console.log(`Server up on PORT ${PORT}`));
 
