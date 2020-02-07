@@ -1,7 +1,7 @@
 body {
   width: 480px;
   margin: auto;
-  border: #E7ECEF solid 1px;
+  /* border: #E7ECEF solid 1px; */
   background-color: #13293D;
   color: #E7ECEF;
 }
@@ -15,6 +15,6 @@ header {
 
 @media (min-width: 760px) {
   body {
-  width: 960px;
+    width: 700px;
   }
 }
