@@ -1,0 +1,21 @@
+form > input, fieldset {
+    width: 85%;
+    height: 45px;
+    margin: 13px auto;
+    
+  }
+  form > input {
+    background-color: #E7ECEF;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  fieldset {
+    background-color: #646881;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }

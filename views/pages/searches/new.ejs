@@ -5,10 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <link rel="stylesheet" href="/styles/main.css">
 </head>
 <body>
+  <header>
+    <h1>Best Books!</h1>
+    <nav></nav>
+  </header>
   <main>
-    <h4>Search by Title or Author</h4>
+    <h2>Search by Title or Author</h2>
     <form action="/searches" method="post">
       <input type="text" name="search" placeholder="Enter a title or author" required>
       <fieldset>
@@ -16,6 +21,7 @@
           <span>Title</span>
           <input type="radio" name="search" value="title" required>
         </label>
+
       </fieldset>
       <fieldset>
         <label for="author">
