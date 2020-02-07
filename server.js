@@ -54,10 +54,8 @@ function Book (data) {
   console.log('data:',data.volumeInfo.imageLinks);
   this.title = data.volumeInfo.title || 'title not available';
   this.description = data.volumeInfo.description || 'description not available';
-  // if (regexx.test(data.imageLinks.thumbnail)) {
 
-  // }
-  this.thumbnail = data.volumeInfo.imageLinks ? data.volumeInfo.imageLinks.thumbnail : 'thumbnail not available';
+  this.thumbnail = data.volumeInfo.imageLinks ? data.volumeInfo.imageLinks.thumbnail.replace(/https/gm, 'http') : 'thumbnail not available';
 
   this.author = data.volumeInfo.authors;
   // this.thumbnail = data.volumeInfo.imageLinks.smallThumbnail || 'thumbnail not available';
