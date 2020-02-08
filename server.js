@@ -4,8 +4,10 @@ require('dotenv').config();
 
 const express = require('express');
 const superagent = require('superagent');
+const pg = require('pg');
 
 const app = express();
+const client = new pg.Client(process.env.DATABASE_URL);
 const PORT = process.env.PORT || 3000;
 
 // Application Middleware
@@ -23,7 +25,11 @@ app.post('/searches', createSearch);
 
 // Callback functions
 function renderHomePage(req, res) {
-  res.render('pages/index.ejs');
+  let SQL = `SELECT * FROM books`;
+  client.query(SQL)
+    .then(results => {
+      res.render('pages/index.ejs', {books: results.rows});
+    });
 }
 
 function renderSearchPage (req, res) {
@@ -68,6 +74,8 @@ function errorHandler(err, req, res) {
 }
 
 
-
-app.listen(PORT, console.log(`Server up on PORT ${PORT}`));
+client.connect()
+  .then(() => {
+    app.listen(PORT, console.log(`Server up on PORT ${PORT}`));
+  });
 

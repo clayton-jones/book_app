@@ -14,6 +14,20 @@
     </div>
     <nav></nav>
   </header>
-  <div>This is a DIV</div>
+  <main>
+    <div id='page-title'>
+      <h2>Your Saved Books: <%= books.length%></h2>
+    </div>
+    <% books.forEach(book => { %>
+      <div class="book">
+        <!-- <img src=<%= book.thumbnail %> alt="book"> -->
+        <h2>
+          <%= book.title %>
+        </h2>
+        <p><%= book.author %></p>
+        <!-- <p><%= book.description %></p> -->
+      </div>
+    <%})%>
+  </main>
 </body>
 </html>
