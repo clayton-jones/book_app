@@ -2,13 +2,21 @@ body {
   width: 480px;
   margin: auto;
   /* border: #E7ECEF solid 1px; */
-  background-color: #13293D;
   color: #E7ECEF;
+  background-color: #444b56;
+}
+
+main {
+  background-color: #071b2d;
+  height: 700px;
+  overflow: scroll;
+  padding-bottom: 15px;
 }
 
 header {
-  background-color: #001D4A;
-  color: #E7ECEF;
+  /* background-color: #E7ECEF; */
+  background-color: rgb(32, 32, 32);
+  color: white;
   height: 50px;
   text-align: center;
 }
