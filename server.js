@@ -59,7 +59,7 @@ function Book (data) {
 
   this.thumbnail = data.volumeInfo.imageLinks ? data.volumeInfo.imageLinks.thumbnail.replace(/https/gm, 'http') : 'http://via.placeholder.com/127x192?text=Image+Not+Available';
 
-  this.author = data.volumeInfo.authors;
+  this.author = data.volumeInfo.authors ? data.volumeInfo.authors.join(', ') : 'authors not avaiable';
   // this.thumbnail = data.volumeInfo.imageLinks.smallThumbnail || 'thumbnail not available';
 }
 
