@@ -25,6 +25,8 @@ app.post('/searches', createSearch);
 
 app.get('/books/:id', renderDetails);
 
+app.post('/books', addToDatabase);
+
 // Callback functions
 function renderHomePage(req, res) {
   let SQL = `SELECT * FROM books`;
@@ -75,7 +77,20 @@ function renderDetails (req, res) {
             WHERE title='${req.query.title}'`;
   client.query(SQL)
     .then(result => {
-      console.log('results.rows[0]:', result.rows[0]);
+      res.render('pages/books/show.ejs', {book: result.rows[0]});
+    })
+    .catch(error => console.error(error));
+}
+
+function addToDatabase (req, res) {
+  let SQL = `INSERT INTO books
+            (author, title, isbn, image_url, description)
+            VALUES ($1, $2, $3, $4, $5) RETURNING *`;
+  const values = [req.body.author, req.body.title, req.body.isbn, req.body.image_url, req.body.description];
+
+  client.query(SQL, values)
+    .then(result => {
+      // console.log('add to database result:', result);
       res.render('pages/books/show.ejs', {book: result.rows[0]});
     })
     .catch(error => console.error(error));
@@ -88,7 +103,7 @@ function Book (data) {
   this.thumbnail = data.volumeInfo.imageLinks ? data.volumeInfo.imageLinks.thumbnail.replace(/https/gm, 'http') : 'http://via.placeholder.com/127x192?text=Image+Not+Available';
 
   this.author = data.volumeInfo.authors ? data.volumeInfo.authors.join(', ') : 'authors not avaiable';
-  this.isbn = data.volumeInfo.industryIdentifiers ? data.volumeInfo.industryIdentifiers[0].type : 'no ISBN available';
+  this.isbn = data.volumeInfo.industryIdentifiers ? `${data.volumeInfo.industryIdentifiers[0].type}: ${data.volumeInfo.industryIdentifiers[0].identifier} ` : 'no ISBN available';
 }
 
 function errorHandler(err, req, res) {

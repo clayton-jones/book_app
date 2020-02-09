@@ -81,6 +81,16 @@ Estimate of time needed to complete: 60 min
 
 Start time: 2:40pm
 
-Finish time: pm
+Finish time: 4:45pm
 
-Actual time needed to complete: mins
+Actual time needed to complete: 2 hrs 5 min
+
+Number and name of feature: Feature 3
+
+Estimate of time needed to complete: 60 min
+
+Start time: 4:45pm
+
+Finish time: 
+
+Actual time needed to complete: 
