@@ -20,16 +20,16 @@
     </div>
     <% books.forEach(book => { %>
       <div class="book">
-        <!-- <img src=<%= book.thumbnail %> alt="book"> -->
+        <img src=<%= book.image_url %> alt="book">
         <h2>
           <%= book.title %>
         </h2>
         <p><%= book.author %></p>
-        <!-- <p><%= book.description %></p> -->
+        <p><%= book.description %></p>
         <form action="/books/:id" method="get">
           <input type="text" name="bookshelf" placeholder="Bookshelf">
           <input type="hidden" name="title" value='<%= book.title%>'>
-          <button type="submit">Views Details</button>
+          <button type="submit">View Details</button>
         </form>
       </div>
     <%})%>
