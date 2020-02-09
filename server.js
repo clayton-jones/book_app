@@ -4,8 +4,10 @@ require('dotenv').config();
 
 const express = require('express');
 const superagent = require('superagent');
+const pg = require('pg');
 
 const app = express();
+const client = new pg.Client(process.env.DATABASE_URL);
 const PORT = process.env.PORT || 3000;
 
 // Application Middleware
@@ -21,9 +23,15 @@ app.get('/searches/new', renderSearchPage);
 
 app.post('/searches', createSearch);
 
+app.get('/books/:id', renderDetails);
+
 // Callback functions
 function renderHomePage(req, res) {
-  res.render('pages/index.ejs');
+  let SQL = `SELECT * FROM books`;
+  client.query(SQL)
+    .then(results => {
+      res.render('pages/index.ejs', {books: results.rows});
+    });
 }
 
 function renderSearchPage (req, res) {
@@ -52,6 +60,26 @@ function createSearch (req, res) {
     });
 }
 
+function renderDetails (req, res) {
+  let SQL2 = `UPDATE books
+              SET bookshelf='${req.query.bookshelf}'
+              WHERE title='${req.query.title}'`;
+  client.query(SQL2)
+    .then(() => {
+      console.log('successful update');
+    })
+    .catch(error => console.error(error));
+
+  let SQL = `SELECT *
+            FROM books
+            WHERE title='${req.query.title}'`;
+  client.query(SQL)
+    .then(result => {
+      console.log('results.rows[0]:', result.rows[0]);
+      res.render('pages/books/show.ejs', {book: result.rows[0]});
+    })
+    .catch(error => console.error(error));
+}
 // Constructors
 function Book (data) {
   this.title = data.volumeInfo.title || 'title not available';
@@ -60,7 +88,7 @@ function Book (data) {
   this.thumbnail = data.volumeInfo.imageLinks ? data.volumeInfo.imageLinks.thumbnail.replace(/https/gm, 'http') : 'http://via.placeholder.com/127x192?text=Image+Not+Available';
 
   this.author = data.volumeInfo.authors ? data.volumeInfo.authors.join(', ') : 'authors not avaiable';
-  // this.thumbnail = data.volumeInfo.imageLinks.smallThumbnail || 'thumbnail not available';
+  this.isbn = data.volumeInfo.industryIdentifiers ? data.volumeInfo.industryIdentifiers[0].type : 'no ISBN available';
 }
 
 function errorHandler(err, req, res) {
@@ -68,6 +96,8 @@ function errorHandler(err, req, res) {
 }
 
 
-
-app.listen(PORT, console.log(`Server up on PORT ${PORT}`));
+client.connect()
+  .then(() => {
+    app.listen(PORT, console.log(`Server up on PORT ${PORT}`));
+  });
 

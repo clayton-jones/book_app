@@ -12,24 +12,14 @@
     <div id="header-title">
       <h1>Best Books!</h1>
     </div>
-    <nav></nav>
+    <%- include('../partials/nav.ejs')%>
   </header>
 
   <main>
     <div id='page-title'>
-      <h2>Search Results</h2>
+      <h2>Book Details</h2>
     </div>
-
-    <% books.forEach(book => { %>
-      <div class="book">
-        <img src=<%= book.thumbnail %> alt="book">
-        <h2>
-          <%= book.title %>
-        </h2>
-        <p><%= book.author %></p>
-        <p><%= book.description %></p>
-      </div>
-    <%})%>  
+    <%- include('../partials/detail.ejs') %>
   </main>
 
 </body>

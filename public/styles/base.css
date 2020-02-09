@@ -17,7 +17,7 @@ header {
   /* background-color: #E7ECEF; */
   background-color: rgb(32, 32, 32);
   color: white;
-  height: 50px;
+  height: fit-content;
   text-align: center;
 }
 
