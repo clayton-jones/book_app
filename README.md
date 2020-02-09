@@ -1,6 +1,8 @@
 # book_app
 Clayton Jones and Kai Hansen
 
+-------------- Lab 11 -----------------
+
 Number and name of feature: Feature 1 
 
 Estimate of time needed to complete: 45 mins
@@ -72,3 +74,13 @@ Start time: 2:05pm
 Finish time: 2:36pm
 
 Actual time needed to complete: 31 mins
+
+Number and name of feature: Feature 2
+
+Estimate of time needed to complete: 60 min
+
+Start time: 2:40pm
+
+Finish time: pm
+
+Actual time needed to complete: mins
