@@ -1,0 +1,51 @@
+/* NAV */
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+nav input {
+  display: none;
+}
+
+nav ul {
+  display: none;
+  order: -1;
+}
+
+nav ul li {
+  padding: 1em 1em;
+}
+
+nav ul li a {
+  text-decoration: none;
+  padding: 3px 3px;
+}
+
+nav ul li a:visited {
+  color: #eee;
+}
+
+nav ul li a:hover {
+  background-color: #eee;
+  color: #111;
+  border-radius: 5px;
+}
+
+nav input:checked + ul {
+  display: flex;
+}
+
+nav label {
+  padding: 1em;
+}
+
+nav label img {
+  margin: 0;
+  padding: 5px;
+  width: 2em;
+  background-color: #eee;
+  border-radius: 5px;
+}

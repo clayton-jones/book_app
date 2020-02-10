@@ -24,12 +24,15 @@
   border: #E7ECEF 2px solid;
 }
 
-header,
-#page-title {
+header, #page-title {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+#page-title {
   justify-content: center;
-  flex-direction: column;
 }
 
 h1 {
