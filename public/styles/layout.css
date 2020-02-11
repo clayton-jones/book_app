@@ -4,6 +4,7 @@
     height: 45px;
     text-align: center;
     margin-bottom: 10px;
+    font-family: 'Roboto Slab', serif;
 }
 
 .book {
@@ -38,45 +39,10 @@ header, #page-title {
 h1 {
   font-size: 30px;
   font-weight: bold;
+  font-family: 'Cinzel', serif;
 }
 
 h2 {
   font-size: 20px;
   font-style: bold;
 }
-
-form > input,
-.label-div,
-form > button {
-    width: 85%;
-    height: 45px;
-    margin: 13px auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-  }
-  
-  form > input {
-    background-color: #E7ECEF;
-    text-align: center;
-  }
-  form > button {
-    background-color: white;
-    color: black;
-    border: none;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .label-div {
-    background-color: #646881;
-  }
-
-  label > p {
-    width: 50px;
-    display: inline-flex;
-  }
