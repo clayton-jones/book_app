@@ -4,6 +4,7 @@
     height: 45px;
     text-align: center;
     margin-bottom: 10px;
+    font-family: 'Roboto Slab', serif;
 }
 
 .book {
@@ -38,6 +39,7 @@ header, #page-title {
 h1 {
   font-size: 30px;
   font-weight: bold;
+  font-family: 'Cinzel', serif;
 }
 
 h2 {
