@@ -33,7 +33,8 @@ function renderHomePage(req, res) {
   client.query(SQL)
     .then(results => {
       res.render('pages/index.ejs', {books: results.rows});
-    });
+    })
+    .catch(err => errorHandler(err, req, res));
 }
 
 function renderSearchPage (req, res) {
@@ -70,7 +71,7 @@ function renderDetails (req, res) {
     .then(() => {
       console.log('successful update');
     })
-    .catch(error => console.error(error));
+    .catch(err => errorHandler(err, req, res));
 
   let SQL = `SELECT *
             FROM books
@@ -79,7 +80,7 @@ function renderDetails (req, res) {
     .then(result => {
       res.render('pages/books/show.ejs', {book: result.rows[0]});
     })
-    .catch(error => console.error(error));
+    .catch(err => errorHandler(err, req, res));
 }
 
 function addToDatabase (req, res) {
@@ -93,7 +94,7 @@ function addToDatabase (req, res) {
       // console.log('add to database result:', result);
       res.render('pages/books/show.ejs', {book: result.rows[0]});
     })
-    .catch(error => console.error(error));
+    .catch(err => errorHandler(err, req, res));
 }
 // Constructors
 function Book (data) {

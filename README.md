@@ -94,3 +94,23 @@ Start time: 4:45pm
 Finish time: 5:40pm
 
 Actual time needed to complete: 55 min
+
+Number and name of feature: Feature 4
+
+Estimate of time needed to complete: 30 min
+
+Start time: 5:55pm
+
+Finish time: 6:05pm
+
+Actual time needed to complete: 10 min
+
+Number and name of feature: Feature 5
+
+Estimate of time needed to complete: 60 min
+
+Start time: 5:25pm
+
+Finish time: 5:55pm
+
+Actual time needed to complete: 30 min
