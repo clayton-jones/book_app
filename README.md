@@ -114,3 +114,13 @@ Start time: 5:25pm
 Finish time: 5:55pm
 
 Actual time needed to complete: 30 min
+--------------Lab 13-------------------
+Number and name of feature: Feature 1
+
+Estimate of time needed to complete: 90 min
+
+Start time: 6:30pm
+
+Finish time: Mostly finished by 9pm, will continue on Thurs
+
+Actual time needed to complete:

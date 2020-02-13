@@ -20,9 +20,9 @@
         </h2>
         <p><%= book.author %></p>
         <p><%= book.description %></p>
-        <form action="/books/:id" method="get">
-          <input type="text" name="bookshelf" placeholder="Bookshelf">
-          <input type="hidden" name="title" value='<%= book.title%>'>
+        <form action="/books/<%-book.id%>" method="get">
+          <!-- <input type="text" name="bookshelf" placeholder="Bookshelf">
+          <input type="hidden" name="title" value='<%= book.title%>'> -->
           <button type="submit">View Details</button>
         </form>
       </div>
