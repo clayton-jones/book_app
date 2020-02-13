@@ -1,6 +1,6 @@
 <section>
   <div class="book">
-    <img src=<%= book.image_url %> alt="book">
+    <img src="<%= book.image_url %>" alt="book">
     <h2>
       <%= book.title %>
     </h2>
@@ -8,5 +8,7 @@
     <p><%= book.description %></p>
     <p><%= book.isbn%></p>
     <p>Bookshelf: <%= book.bookshelf%></p>
+    <button>Update Details</button>
+    <%- include('edit.ejs') %>
   </div>
 </section>

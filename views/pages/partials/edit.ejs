@@ -1,0 +1,17 @@
+<form method="POST" action="/books/<%- book.id %>?_method=put">
+    <input type="text" name="title" value="<%- book.title %>" />
+    <input type="text" name="author" value="<%- book.author %>" />
+    <input type="text" name="isbn" value="<%- book.isbn %>" />
+    <input type="text" name="image_url" value="<%- book.image_url %>" />
+    <input type="text" name="description" value="<%- book.description %>" />
+    <input type="text" name="bookshelf" value="<%- book.bookshelf %>" />
+    <select id="bookshelves">
+       <option value="<%-book.bookshelf%>" selected><%-book.bookshelf%></option>
+        <% for(let i = 0; i < bookshelves.length; i++) { %>
+            <% if (bookshelves[i].bookshelf !== book.bookshelf) { %>
+                <option value="<%-bookshelves[i].bookshelf%>"><%-bookshelves[i].bookshelf%></option>
+            <% } %>
+        <% }%>
+    </select>
+    <button type="submit">Update Book</button>
+</form>
