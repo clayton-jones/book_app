@@ -9,6 +9,6 @@
     <p><%= book.isbn%></p>
     <p>Bookshelf: <%= book.bookshelf%></p>
     <button>Update Details</button>
-    <%- include('edit.ejs') %>
+    <%- include('edit.ejs', {edit: true, bookshelves: bookshelves}) %>
   </div>
 </section>

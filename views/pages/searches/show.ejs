@@ -25,14 +25,7 @@
         </h2>
         <p><%= book.author %></p>
         <p><%= book.description %></p>
-        <form action="/books" method="post">
-          <input type="hidden" name="author" value="<%= book.author%>">
-          <input type="hidden" name="title" value="<%= book.title%>">
-          <input type="hidden" name="isbn" value="<%= book.isbn%>">
-          <input type="hidden" name="image_url" value="<%= book.thumbnail%>">
-          <input type="hidden" name="description" value="<%= book.description%>">
-          <button type="submit">Add to Database</button>
-        </form>
+        <%- include('../partials/edit.ejs', {book: book, edit: false}) %>
       </div>
     <%})%>  
   </main>

@@ -59,7 +59,7 @@ function createSearch (req, res) {
         // console.log('book.imageLinks.thumbnail:', book);
         return new Book(book);
       });
-      res.render('pages/searches/show.ejs', {books: bookArr});
+      res.render('pages/searches/show.ejs', {books: bookArr, edit: false});
     })
     .catch((err) => {
       //res.render('pages/error.ejs', {error: err});
@@ -68,15 +68,6 @@ function createSearch (req, res) {
 }
 
 function renderDetails (req, res) {
-  // let SQL2 = `UPDATE books
-  //             SET bookshelf='${req.query.bookshelf}'
-  //             WHERE title='${req.query.title}'`;
-  // client.query(SQL2)
-  //   .then(() => {
-  //     console.log('successful update');
-  //   })
-  //   .catch(err => errorHandler(err, req, res));
-
   let id = req.params.id;
   let values = [id];
 
@@ -97,7 +88,7 @@ function renderDetails (req, res) {
           console.log('result:', result.rows);
           bookshelves = result.rows;
           console.log('bookshelves:', bookshelves);
-          res.render('pages/books/show.ejs', {book: book, bookshelves: bookshelves});
+          res.render('pages/books/show.ejs', {book: book, bookshelves: bookshelves, edit: true});
         });
     })
     .catch(err => errorHandler(err, req, res));
@@ -112,7 +103,8 @@ function addToDatabase (req, res) {
   client.query(SQL, values)
     .then(result => {
       // console.log('add to database result:', result);
-      res.render('pages/books/show.ejs', {book: result.rows[0]});
+      //res.render('pages/books/show.ejs', {book: result.rows[0], edit: false});
+      res.redirect('/');
     })
     .catch(err => errorHandler(err, req, res));
 }

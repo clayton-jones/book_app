@@ -119,8 +119,20 @@ Number and name of feature: Feature 1
 
 Estimate of time needed to complete: 90 min
 
-Start time: 6:30pm
+Start time: 6:30pm, Thurs continuation 6:15pm
 
-Finish time: Mostly finished by 9pm, will continue on Thurs
+Finish time: Mostly finished by 9pm, Thurs continuation 7:39pm
 
-Actual time needed to complete:
+Actual time needed to complete: 4 hours
+
+Number and name of feature: Feature 2
+
+Estimate of time needed to complete: 60 min
+
+Start time: 7:41pm
+
+Finish time: 
+
+Actual time needed to complete: 
+
+
