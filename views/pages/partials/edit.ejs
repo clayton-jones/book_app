@@ -18,6 +18,9 @@
         </select>
         <button type="submit">Update Book</button>
     </form>
+    <form method="POST" action="/books/<%- book.id %>?_method=delete">
+        <button type="submit">Delete Book</button>
+    </form>
 <% } else { %>
     <form action="/books" method="post">
         <input type="hidden" name="author" value="<%= book.author%>">

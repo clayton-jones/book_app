@@ -31,6 +31,8 @@ app.post('/books', addToDatabase);
 
 app.put('/books/:id', updateDetails);
 
+app.delete('/books/:id', deleteBook);
+
 // Callback functions
 function renderHomePage(req, res) {
   let SQL = `SELECT * FROM books`;
@@ -101,7 +103,7 @@ function addToDatabase (req, res) {
   const values = [req.body.author, req.body.title, req.body.isbn, req.body.image_url, req.body.description];
 
   client.query(SQL, values)
-    .then(result => {
+    .then(() => {
       // console.log('add to database result:', result);
       //res.render('pages/books/show.ejs', {book: result.rows[0], edit: false});
       res.redirect('/');
@@ -119,6 +121,17 @@ function updateDetails (req, res) {
   client.query(SQL, values)
     .then(() => {
       res.redirect(`/books/${id}`);
+    })
+    .catch(err => errorHandler(err, req, res));
+}
+
+function deleteBook(req, res) {
+  let id = req.params.id;
+  let SQL = 'DELETE FROM books WHERE id=$1';
+  let values = [id];
+  client.query(SQL, values)
+    .then(() => {
+      res.redirect('/');
     })
     .catch(err => errorHandler(err, req, res));
 }
